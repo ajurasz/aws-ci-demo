@@ -1,7 +1,10 @@
 package com.example.demo;
 
 import com.amazonaws.util.EC2MetadataUtils;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -45,7 +48,7 @@ class DemoController {
 
 	private final BeerRepository beerRepository;
 
-	public DemoController(BeerRepository beerRepository) {
+	DemoController(BeerRepository beerRepository) {
 		this.beerRepository = beerRepository;
 	}
 
