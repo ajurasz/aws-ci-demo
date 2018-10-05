@@ -3,10 +3,11 @@ version: 0.2
 phases:
   build:
     commands:
-      - .\mvnw clean package
+      - echo Build started on `date`
+      - ./mvnw clean package
 artifacts:
   files:
-    - '**/*'
+    - 'target/app.jar'
 cache:
   paths:
     - '/root/.m2/**/*'
