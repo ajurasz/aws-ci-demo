@@ -7,6 +7,7 @@ phases:
       - mvn clean package
       - COV_SCRIPT=/root/.cache/codecov.sh
       - if [ ! -f "$COV_SCRIPT" ]; then curl -s https://codecov.io/bash > "$COV_SCRIPT"; fi
+      - bash "$COV_SCRIPT" -t $CODECOV_TOKEN
 artifacts:
   files:
     - 'target/app.jar'
