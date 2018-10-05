@@ -1,1 +1,3 @@
 # aws-ci-demo
+
+![Build status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiTmd0bGV2aW5MK1hGTDYxSEZGNUhIZGV4R2ZtYnpPRjUvUnNQaHNGTk0yRGdsM3gwZ0lBZHh4Tm9kVW94Smt5aDU4VTlUOUtWT29xYWR6bTR3VXFVc3pBPSIsIml2UGFyYW1ldGVyU3BlYyI6IktPanUwRmlqQjRCQllTWkMiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
