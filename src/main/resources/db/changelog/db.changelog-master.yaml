@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ajurasz
+      changes:
+        - createTable:
+            tableName: beers
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: ajurasz
+      changes:
+        - insert:
+            tableName: beers
+            columns:
+              - column:
+                  name: name
+                  value: Żywiec
+        - insert:
+            tableName: beers
+            columns:
+              - column:
+                  name: name
+                  value: Warka

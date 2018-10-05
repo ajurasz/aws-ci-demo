@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - .\mvnw clean package
+artifacts:
+  files:
+    - '**/*'
+cache:
+  paths:
+    - '/root/.m2/**/*'
