@@ -5,6 +5,10 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn clean package
+      - VCS_COMMIT_ID="$(git rev-parse HEAD)"
+      - VCS_BRANCH_NAME="$CODEBUILD_SOURCE_VERSION"
+      - CI_BUILD_URL=$(echo $CODEBUILD_AGENT_ENV_CODEBUILD_BUILD_URL | sed 's/#/%23/g')
+      - CI_BUILD_ID="${CODEBUILD_BUILD_ID}"
       - COV_SCRIPT=/root/.cache/codecov.sh
       - if [ ! -f "$COV_SCRIPT" ]; then curl -s https://codecov.io/bash > "$COV_SCRIPT"; fi
       - bash "$COV_SCRIPT" -t $CODECOV_TOKEN
