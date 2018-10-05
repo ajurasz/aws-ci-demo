@@ -5,6 +5,7 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn clean package
+      - bash <(curl -s https://codecov.io/bash)
 artifacts:
   files:
     - 'target/app.jar'
