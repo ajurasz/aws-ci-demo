@@ -5,10 +5,12 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn clean package
-      - bash <(curl -s https://codecov.io/bash)
+      - COV_SCRIPT=/root/.cache/codecov.sh
+      - if [ ! -f "$COV_SCRIPT" ]; then curl -s https://codecov.io/bash > "$COV_SCRIPT"; fi
 artifacts:
   files:
     - 'target/app.jar'
 cache:
   paths:
+    - '/root/.cache/codecov.sh'
     - '/root/.m2/**/*'
