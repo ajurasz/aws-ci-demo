@@ -9,8 +9,8 @@ phases:
 artifacts:
   files:
     - 'target/app.jar'
-  discard-paths: yes
+    - '.ebextensions/**'
+    - 'Procfile'
 cache:
   paths:
-    - '/root/.cache/codecov.sh'
     - '/root/.m2/**/*'
