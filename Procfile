@@ -1,1 +1,1 @@
-web: java -Dserver.port=5000 -jar target/app.jar
+web: java -Dserver.port=5000 -jar app.jar
