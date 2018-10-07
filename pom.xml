@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+        <app.finalName>app</app.finalName>
 		<aws-java-sdk.version>1.11.420</aws-java-sdk.version>
 		<postgresql.version>42.2.5</postgresql.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
@@ -64,7 +65,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -79,9 +80,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <finalName>app</finalName>
+                    <finalName>${app.finalName}</finalName>
                 </configuration>
 			</plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>AWSEBPackage</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <zip destfile="${project.build.directory}/${app.finalName}.zip" compress="false">
+                                    <zipfileset dir="." includes="Procfile"/>
+                                    <!--<zipfileset dir="." includes=".ebextensions/**"/>-->
+                                    <zipfileset dir="./target" includes="${app.finalName}.jar"/>
+                                </zip>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
