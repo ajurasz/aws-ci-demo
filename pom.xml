@@ -93,7 +93,7 @@
                             <target>
                                 <zip destfile="${project.build.directory}/${app.finalName}.zip" compress="false">
                                     <zipfileset dir="." includes="Procfile"/>
-                                    <!--<zipfileset dir="." includes=".ebextensions/**"/>-->
+                                    <zipfileset dir="." includes=".ebextensions/**"/>
                                     <zipfileset dir="./target" includes="${app.finalName}.jar"/>
                                 </zip>
                             </target>
