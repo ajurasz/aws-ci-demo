@@ -6,7 +6,6 @@ phases:
       - echo Build started on `date`
       - mvn clean package
       - mv target/app.jar .
-      - if [ -n "$CODEBUILD_SOURCE_VERSION" ]; then mvn sonar:sonar -Dsonar.projectKey=ajurasz_aws-ci-demo -Dsonar.organization=ajurasz-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_CLOUD_TOKEN -Dsonar.junit.reportPaths=target/surefire-reports -Dsonar.jacoco.reportPaths=target/jacoco.exec; fi
 artifacts:
   files:
     - 'app.jar'
