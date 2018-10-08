@@ -9,7 +9,7 @@ phases:
 artifacts:
   files:
     - 'app.jar'
-    - '.ebextensions/**'
+    - '.ebextensions/**/*'
     - 'Procfile'
 cache:
   paths:
